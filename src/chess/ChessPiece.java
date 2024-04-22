@@ -9,6 +9,7 @@ import java.util.Scanner;
 public  abstract class ChessPiece extends Piece {
 
     private Colors color;
+    protected int moveCount;
     public ChessPiece(Board board, Colors color) {
         super(board);
         this.color = color;
@@ -16,6 +17,16 @@ public  abstract class ChessPiece extends Piece {
 
     public Colors getColor() {
         return color;
+    }
+    public int getMoveCount(){
+        return moveCount;
+    }
+
+    public void increaseMoveCount(){
+        moveCount++;
+    }
+    public void decreaseMoveCount(){
+        moveCount--;
     }
 
     protected boolean isThereOpponentPiece(Position position){
