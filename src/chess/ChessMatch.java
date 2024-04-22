@@ -11,12 +11,23 @@ import java.util.Scanner;
 
 public class ChessMatch {
 
-
+    private int turn;
+    private Colors currentPlayer;
     private Board board;
     public ChessMatch(){
 
         board = new Board(8,8);
+
+        turn =1;
+        currentPlayer =Colors.White;
+
         inicialSetup();
+    }
+    public int getTurn(){
+        return turn;
+    }
+    public Colors getCurrentPlayer(){
+        return currentPlayer;
     }
     public ChessPiece[][] getpieces(){
 
@@ -42,6 +53,7 @@ public class ChessMatch {
         validateSourcePosition(source);
         ValidateTargetPosition(source, target);
         Piece capturedPiece = makeMove(source,target);
+        nextTurn();
         return (ChessPiece) capturedPiece;
 
     }
@@ -57,6 +69,9 @@ public class ChessMatch {
         throw new ChessException("Nao existe peca na posicao de origem");
 
         }
+        if(currentPlayer != ((ChessPiece) board.piece(position)).getColor()){
+            throw new ChessException("a peca escolhida nao e sua");
+        }
         if(!board.piece(position).isThereAnyPossibleMoves()){
             throw new ChessException("Nao existe movimentos possiveis para essa peca, escolha outro");
 
@@ -68,6 +83,10 @@ public class ChessMatch {
             throw new ChessException("A peca escolhida nao pode se mover para posicao de destino");
         }
 
+    }
+    private void nextTurn(){
+        turn++;
+        currentPlayer = (currentPlayer == Colors.White)? Colors.Black : Colors.White;
     }
     private void placeNewPiece(char column, int row, ChessPiece piece){
         board.placePiece(piece, new ChessPosition(column, row).toPositon());

@@ -1,5 +1,6 @@
 package application;
 
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.Colors;
 import chess.ChessPosition;
@@ -48,6 +49,13 @@ public class UI {
         catch (RuntimeException e){
             throw new InputMismatchException("Erro ao ler a posicao");
         }
+    }
+    public static void printMatch(ChessMatch chessMatch){
+        printBoard(chessMatch.getpieces());
+        System.out.println();
+        System.out.println("Turno: "+ chessMatch.getTurn());
+        System.out.println("Esperando jogador: " + chessMatch.getCurrentPlayer());
+
     }
 
     public static void printBoard(ChessPiece[][] pieces){
