@@ -3,9 +3,7 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
-import chess.pieces.King;
-import chess.pieces.Pawn;
-import chess.pieces.Rook;
+import chess.pieces.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -189,7 +187,11 @@ public class ChessMatch {
     }
     private void inicialSetup(){
         placeNewPiece('a', 1, new Rook(board, Colors.White));
+        placeNewPiece('b', 1, new Knight(board, Colors.White));
+        placeNewPiece('c', 1, new Bishop(board, Colors.White));
         placeNewPiece('e', 1, new King(board, Colors.White));
+        placeNewPiece('f', 1, new Bishop(board, Colors.White));
+        placeNewPiece('g', 1, new Knight(board, Colors.White));
         placeNewPiece('h', 1, new Rook(board, Colors.White));
         placeNewPiece('a', 2, new Pawn(board, Colors.White));
         placeNewPiece('b', 2, new Pawn(board, Colors.White));
@@ -201,7 +203,11 @@ public class ChessMatch {
         placeNewPiece('h', 2, new Pawn(board, Colors.White));
 
         placeNewPiece('a', 8, new Rook(board, Colors.Black));
+        placeNewPiece('b', 8, new Knight(board, Colors.Black));
+        placeNewPiece('c', 8, new Bishop(board, Colors.Black));
         placeNewPiece('e', 8, new King(board, Colors.Black));
+        placeNewPiece('f', 8, new Bishop(board, Colors.Black));
+        placeNewPiece('g', 8, new Knight(board, Colors.Black));
         placeNewPiece('h', 8, new Rook(board, Colors.Black));
         placeNewPiece('a', 7, new Pawn(board, Colors.Black));
         placeNewPiece('b', 7, new Pawn(board, Colors.Black));
