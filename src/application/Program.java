@@ -24,6 +24,9 @@ public class Program {
                 System.out.println();
                 System.out.println("Sorce: ");
                 ChessPosition source = UI.readChessPosition(scan);
+                boolean[][] possivelMoves = chessMatch.possivelMoves(source);
+                UI.clearScreen();
+                UI.printBoard(chessMatch.getpieces(),possivelMoves);
                 System.out.println();
                 System.out.println("Target: ");
                 ChessPosition target = UI.readChessPosition(scan);
