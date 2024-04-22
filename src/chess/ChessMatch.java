@@ -20,6 +20,7 @@ public class ChessMatch {
     private List<Piece> capturadPieces = new ArrayList<>();
     private boolean check;
     private boolean checkMate;
+    private ChessPiece enPassantVulnerable;
     public ChessMatch(){
 
         board = new Board(8,8);
@@ -40,6 +41,9 @@ public class ChessMatch {
     }
     public boolean getCheckMate(){
         return checkMate;
+    }
+    public ChessPiece getEnPassantVulnerable() {
+        return enPassantVulnerable;
     }
     public ChessPiece[][] getpieces(){
 
@@ -227,14 +231,14 @@ public class ChessMatch {
         placeNewPiece('f', 1, new Bishop(board, Colors.White));
         placeNewPiece('g', 1, new Knight(board, Colors.White));
         placeNewPiece('h', 1, new Rook(board, Colors.White));
-        placeNewPiece('a', 2, new Pawn(board, Colors.White));
-        placeNewPiece('b', 2, new Pawn(board, Colors.White));
-        placeNewPiece('c', 2, new Pawn(board, Colors.White));
-        placeNewPiece('d', 2, new Pawn(board, Colors.White));
-        placeNewPiece('e', 2, new Pawn(board, Colors.White));
-        placeNewPiece('f', 2, new Pawn(board, Colors.White));
-        placeNewPiece('g', 2, new Pawn(board, Colors.White));
-        placeNewPiece('h', 2, new Pawn(board, Colors.White));
+        placeNewPiece('a', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('b', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('c', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('d', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('e', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('f', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('g', 2, new Pawn(board, Colors.White, this));
+        placeNewPiece('h', 2, new Pawn(board, Colors.White, this));
 
         placeNewPiece('a', 8, new Rook(board, Colors.Black));
         placeNewPiece('b', 8, new Knight(board, Colors.Black));
@@ -244,14 +248,14 @@ public class ChessMatch {
         placeNewPiece('f', 8, new Bishop(board, Colors.Black));
         placeNewPiece('g', 8, new Knight(board, Colors.Black));
         placeNewPiece('h', 8, new Rook(board, Colors.Black));
-        placeNewPiece('a', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('b', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('c', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('d', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('e', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('f', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('g', 7, new Pawn(board, Colors.Black));
-        placeNewPiece('h', 7, new Pawn(board, Colors.Black));
+        placeNewPiece('a', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('b', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('c', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('d', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('e', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('f', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('g', 7, new Pawn(board, Colors.Black, this));
+        placeNewPiece('h', 7, new Pawn(board, Colors.Black, this));
 
 
     }
