@@ -28,6 +28,29 @@ public class ChessMatch {
         }
         return mat;
     }
+    public ChessPiece performeChessMove(ChessPosition sourcePosition,ChessPosition targetPosition){
+
+        Position source = sourcePosition.toPositon();
+        Position taget = targetPosition.toPositon();
+        validateSourcePosition(source);
+        Piece capturedPiece = makeMove(source,taget);
+        return (ChessPiece) capturedPiece;
+
+    }
+
+    private Piece makeMove(Position source, Position target){
+        Piece p =board.removePiece(source);
+        Piece capturePiece = board.removePiece(target);
+        board.placePiece(p,target);
+        return capturePiece;
+    }
+    private void validateSourcePosition(Position position){
+        if(!board.thereIsApiece(position)) {
+        throw new ChessException("Nao existe peca na posicao de origem");
+
+        }
+
+    }
     private void placeNewPiece(char column, int row, ChessPiece piece){
         board.placePiece(piece, new ChessPosition(column, row).toPositon());
 
