@@ -5,7 +5,7 @@ import boardgame.Piece;
 
 import java.util.Scanner;
 
-public class ChessPiece extends Piece {
+public  abstract class ChessPiece extends Piece {
 
     private Colors color;
     public ChessPiece(Board board, Colors color) {
