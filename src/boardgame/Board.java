@@ -1,7 +1,5 @@
 package boardgame;
 
-import java.util.Scanner;
-
 public class Board {
 
     private Integer rows;
@@ -10,7 +8,7 @@ public class Board {
 
     public Board(Integer rows, Integer columns) {
         if ( rows < 1 || columns < 1){
-            throw new BoardExcepcion("Erro ao criar o tabuleiro, e necessario que tenha ao menos uma linha ou uma coluna");
+            throw new BoardException("Erro ao criar o tabuleiro, e necessario que tenha ao menos uma linha ou uma coluna");
         }
         this.rows = rows;
         this.columns = columns;
@@ -26,19 +24,19 @@ public class Board {
     }
     public Piece piece(int row, int column){
         if(!positionExists(row, column)){
-            throw new BoardExcepcion("Posicao fora do tabuleiro");
+            throw new BoardException("Posicao fora do tabuleiro");
         }
         return pieces[row][column];
     }
     public Piece piece(Position position){
         if(!positionExists(position)){
-            throw new BoardExcepcion("Posicao fora do tabuleiro");
+            throw new BoardException("Posicao fora do tabuleiro");
         }
         return pieces[position.getRow()][position.getColumn()];
     }
     public void placePiece(Piece piece, Position position){
         if(thereIsApiece(position)){
-            throw new BoardExcepcion("Ja existe uma peca nessa possicao "+ position);
+            throw new BoardException("Ja existe uma peca nessa possicao "+ position);
         }
 
         pieces[position.getRow()][position.getColumn()] = piece;
@@ -55,7 +53,7 @@ public class Board {
     }
     public boolean thereIsApiece(Position position){
         if(!positionExists(position)){
-            throw new BoardExcepcion("Posicao fora do tabuleiro");
+            throw new BoardException("Posicao fora do tabuleiro");
         }
         return piece(position) != null;
 
