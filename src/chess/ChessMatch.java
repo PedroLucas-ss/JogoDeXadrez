@@ -6,6 +6,7 @@ import boardgame.Position;
 import chess.pieces.King;
 import chess.pieces.Rook;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class ChessMatch {
@@ -32,9 +33,19 @@ public class ChessMatch {
 
     }
     private void inicialSetup(){
-        placeNewPiece('b', 6,new Rook(board, Colors.White));
-        placeNewPiece('e', 8,new King(board, Colors.White));
-        placeNewPiece('e', 1,new King(board, Colors.Black));
+        placeNewPiece('c', 1, new Rook(board, Colors.White));
+        placeNewPiece('c', 2, new Rook(board, Colors.White));
+        placeNewPiece('d', 2, new Rook(board, Colors.White));
+        placeNewPiece('e', 2, new Rook(board, Colors.White));
+        placeNewPiece('e', 1, new Rook(board, Colors.White));
+        placeNewPiece('d', 1, new King(board, Colors.White));
+
+        placeNewPiece('c', 7, new Rook(board, Colors.Black));
+        placeNewPiece('c', 8, new Rook(board, Colors.Black));
+        placeNewPiece('d', 7, new Rook(board, Colors.Black));
+        placeNewPiece('e', 7, new Rook(board, Colors.Black));
+        placeNewPiece('e', 8, new Rook(board, Colors.Black));
+        placeNewPiece('d', 8, new King(board, Colors.Black));
 
 
     }
