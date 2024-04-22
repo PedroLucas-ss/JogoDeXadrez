@@ -8,19 +8,22 @@ import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 public class Program {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
         ChessMatch chessMatch = new ChessMatch();
+        List<ChessPiece> capturadas = new ArrayList<>();
 
         while (true) {
             try {
 
                 UI.clearScreen();
-                UI.printMatch(chessMatch);
+                UI.printMatch(chessMatch, capturadas);
                 System.out.println();
                 System.out.println("Sorce: ");
                 ChessPosition source = UI.readChessPosition(scan);
@@ -32,6 +35,9 @@ public class Program {
                 ChessPosition target = UI.readChessPosition(scan);
 
                 ChessPiece capturePiece = chessMatch.performeChessMove(source, target);
+                if(capturePiece != null){
+                    capturadas.add(capturePiece);
+                }
             }
             catch (ChessException e){
                 System.out.println(e.getMessage());
