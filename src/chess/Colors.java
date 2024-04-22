@@ -1,2 +1,7 @@
-package chess;public enum Colors {
+package chess;
+
+public enum Colors {
+
+    Black,
+    White
 }
